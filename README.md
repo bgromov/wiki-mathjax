@@ -11,17 +11,17 @@ Right-Click on equation to show MathJax's context menu with additional options, 
 
 **v.0.0.4:**
 
- - Fix: extension now works on secured (https) version of Wikipedia
+ - Fix the fix: extension now works on secured (https) version of Wikipedia.
 
 **v.0.0.3:**
 
- - Fix: extension now works on secured (https) version of Wikipedia
+ - Fix: extension now works on secured (https) version of Wikipedia.
 
 **v.0.0.2:**
 
  - Now supports some non-standart LaTeX commands specific to Wikipedia markup language.
  
- - Inline equations are scaled down to 100% (previously were same as display equations, i.e. 125%)
+ - Inline equations are scaled down to 100% (previously were same as display equations, i.e. 125%).
 
 ### KNOWN ISSUES:
 
