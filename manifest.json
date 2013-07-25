@@ -1,0 +1,12 @@
+{
+  "name": "Wikipedia with MathJax (Development version)",
+  "version": "0.0.4",
+  "description": "Renders Wikipedia equations with MathJax",
+  "content_scripts": [
+    {
+      "matches": ["http://*.wikipedia.org/*", "https://*.wikipedia.org/*"],
+      "js": ["jquery-min-1.7.2.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
