@@ -1,14 +1,3 @@
-//$('table.wikitable').each(function (){
-//    $(this).replaceWith( $(this).html()
-//        .replace(/<tbody/gi, "<div class='wikitable'")
-//        .replace(/<tr/gi, "<div class=''")
-//        .replace(/<\/tr>/gi, "</div>")
-//        .replace(/<td/gi, "<span")
-//        .replace(/<\/td>/gi, "</span>")
-//        .replace(/<\/tbody/gi, "<\/div")
-//    );
-//});
-
 // Replace image tags with MathJax math scripts
 $('img.tex').replaceWith(function() {
   var $otag, $ctag, $disp, $scale;
@@ -22,23 +11,8 @@ $('img.tex').replaceWith(function() {
     $scale = '100%';
   }
   return '<span style="font-size: ' + $scale + '"><script type="math/tex' + $disp + '">' + $(this).attr('alt') + '</script></span>';
-//  return '<div style="font-size: 125%">' + $otag + $(this).attr('alt') + $ctag + '</div>';
 });
 
-//    extensions: ["tex2jax.js"],\
-//    tex2jax: {\
-//      inlineMath: [ ["[mjax-inline]","[/mjax-inline]"]],\
-//      displayMath: [ ["[mjax]","[/mjax]"]]\
-//    },\
-//    "HTML-CSS":{\
-//      scale:100,\
-//      availableFonts:["STIX","TeX"],\
-//      preferredFont:"TeX",\
-//      webFont:"TeX",\
-//      imageFont:"TeX",\
-//      showMathMenu:false,\
-//      styles:{},\
-//    },\
 // Inject config code for MathJax
 $('script').append('<script type="text/x-mathjax-config">\
   MathJax.Hub.Config({\
@@ -102,5 +76,3 @@ $('script').append(
 '<script type="text/javascript" \
 src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">\
 </script>');
-
-
