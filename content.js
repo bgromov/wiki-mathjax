@@ -9,20 +9,34 @@
 //    );
 //});
 
-// Replace image tags with MathJax math scripts
-$('img.tex').replaceWith(function() {
-  var $otag, $ctag, $disp, $scale;
+
+// // Replace image tags with MathJax math scripts
+// $('img.tex').replaceWith(function() {
+//   var $otag, $ctag, $disp, $scale;
+//   if($(this).parent().is('dd')) {
+//     $otag = '[mjax]'; $ctag = '[/mjax]';
+//     $disp = '; mode=display';
+//     $scale = '125%';
+//   }else{
+//     $otag = '[mjax-inline]'; $ctag = '[/mjax-inline]';
+//     $disp = '';
+//     $scale = '100%';
+//   }
+//   return '<span style="font-size: ' + $scale + '"><script type="math/tex' + $disp + '">' + $(this).attr('alt') + '</script></span>';
+// //  return '<div style="font-size: 125%">' + $otag + $(this).attr('alt') + $ctag + '</div>';
+// });
+
+// Wrap images in MathJax_Preview spans and attach the MathJax math script TODO what about scaling?
+$('img.tex').wrap('<span class="MathJax_Preview" />');
+$('.MathJax_Preview').after(function () {
+  var $disp, $scale;
   if($(this).parent().is('dd')) {
-    $otag = '[mjax]'; $ctag = '[/mjax]';
     $disp = '; mode=display';
-    $scale = '125%';
   }else{
-    $otag = '[mjax-inline]'; $ctag = '[/mjax-inline]';
     $disp = '';
-    $scale = '100%';
   }
-  return '<span style="font-size: ' + $scale + '"><script type="math/tex' + $disp + '">' + $(this).attr('alt') + '</script></span>';
-//  return '<div style="font-size: 125%">' + $otag + $(this).attr('alt') + $ctag + '</div>';
+  tex = $(this).find('img').attr("alt");
+  return '<script type="math/tex' + $disp + '">' + tex + '</script>';
 });
 
 //    extensions: ["tex2jax.js"],\
