@@ -26,7 +26,16 @@
 // //  return '<div style="font-size: 125%">' + $otag + $(this).attr('alt') + $ctag + '</div>';
 // });
 
-// Wrap images in MathJax_Preview spans and attach the MathJax math script TODO what about scaling?
+
+
+// Wrap the span for legacy zoom levels. Could it be an option within the Chrome extension?
+$('img.tex').each(function() {
+  if($(this).parent().is('dd')) {
+    $(this).wrap('<span style="font-size: 125%">');
+  }
+});
+
+// Wrap images in MathJax_Preview spans and attach the MathJax math script. MathJax will remove the preview when it's done typesetting.
 $('img.tex').wrap('<span class="MathJax_Preview" />');
 $('.MathJax_Preview').after(function () {
   var $disp, $scale;
@@ -38,6 +47,9 @@ $('.MathJax_Preview').after(function () {
   tex = $(this).find('img').attr("alt");
   return '<script type="math/tex' + $disp + '">' + tex + '</script>';
 });
+
+
+
 
 //    extensions: ["tex2jax.js"],\
 //    tex2jax: {\
@@ -53,7 +65,7 @@ $('.MathJax_Preview').after(function () {
 //      showMathMenu:false,\
 //      styles:{},\
 //    },\
-// Inject config code for MathJax
+// Inject config code for MathJax TODO: add texvc macros from https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fextensions%2FTeX%2Ftexvc.js
 $('script').append('<script type="text/x-mathjax-config">\
   MathJax.Hub.Config({\
     displayAlign: "left",\
@@ -111,7 +123,7 @@ $('script').append('<script type="text/x-mathjax-config">\
   });\
 </script>');
 
-// To ensure that we loading MathJax AFTER substituting images, we load it manualy
+// To ensure that we loading MathJax AFTER substituting images, we load it manualy TODO follow Wikipedia's configuration https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fconfig%2FTeX-AMS-texvc_HTML.js
 $('script').append(
 '<script type="text/javascript" \
 src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">\
