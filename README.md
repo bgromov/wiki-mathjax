@@ -7,7 +7,17 @@ Left-Click on equation to instantly zoom it to 200% (can be changed via MathJax 
 
 Right-Click on equation to show MathJax's context menu with additional options, e.g. "Scale All Math..." to instantly scale all equations on a page, "TeX commands" to see the source TeX equation etc.
 
+Extension is now published under [New BSD License](https://github.com/bgromov/wiki-mathjax/blob/master/LICENSE.md) with the source code available [here](https://github.com/bgromov/wiki-mathjax).
+
+For bug reports and feature requests, please use [Issue tracker](https://github.com/bgromov/wiki-mathjax/issues).
+
 ### UPDATES:
+
+**v.0.0.5:**
+
+ - Add MathJax *Preview* feature. For smoother user experience original images replaced only after MathJax typesetting is ready (Thanks to Peter Krautzberger).
+
+ - Fix: by default MathJax using different from LaTeX `\color` macro. That makes certain equations unable to render (for example, see [Extended Kalman Filter](http://en.wikipedia.org/wiki/Extended_Kalman_filter#Discrete-time_predict_and_update_equations)). The problem is solved by MathJax' `color` extension.
 
 **v.0.0.4:**
 
@@ -19,7 +29,7 @@ Right-Click on equation to show MathJax's context menu with additional options, 
 
 **v.0.0.2:**
 
- - Now supports some non-standart LaTeX commands specific to Wikipedia markup language.
+ - Now supports some non-standard LaTeX commands specific to Wikipedia markup language.
  
  - Inline equations are scaled down to 100% (previously were same as display equations, i.e. 125%).
 
