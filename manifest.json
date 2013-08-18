@@ -1,4 +1,5 @@
 {
+  "manifest_version": 2,
   "name": "Wikipedia with MathJax (Development version)",
   "version": "0.0.4",
   "description": "Renders Wikipedia equations with MathJax",
