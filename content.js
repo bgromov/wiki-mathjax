@@ -70,6 +70,7 @@ $('script').append('<script type="text/x-mathjax-config">\
   MathJax.Hub.Config({\
     displayAlign: "left",\
     TeX: {\
+      extensions: ["color.js"],\
       Macros: {\
         C:            "\\\\mathbb{C}",\
         cnums:        "\\\\mathbb{C}",\
