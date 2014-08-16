@@ -1,5 +1,5 @@
-wiki-mathjax
-============
+Wikipedia with MathJax (Chrome extesion)
+========================================
 
 Extension replaces Wikipedia bitmap equations with HTML-CSS ones by re-rendering them with an open source [MathJax](http://mathjax.org/) library. In effect, this allows to scale Wikipedia pages without loosing in equation quality.
 
@@ -11,7 +11,15 @@ Extension is now published under [New BSD License](https://github.com/bgromov/wi
 
 For bug reports and feature requests, please use [Issue tracker](https://github.com/bgromov/wiki-mathjax/issues).
 
+### INSTALLATION:
+
+Official release available at [Chrome Web Store](https://chrome.google.com/webstore/detail/wikipedia-with-mathjax/fhomhkjcommffnlajeemenejemmegcmi).
+
 ### UPDATES:
+
+**v.0.0.6:**
+
+ - Fix MathJax CDN URL (Thanks to Thomas Kriechbaumer).
 
 **v.0.0.5:**
 

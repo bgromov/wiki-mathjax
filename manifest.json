@@ -1,7 +1,7 @@
 {
-  "name": "Wikipedia with MathJax",
-  "version": "0.0.5",
   "manifest_version": 2,
+  "name": "Wikipedia with MathJax",
+  "version": "0.0.6",
   "description": "Renders Wikipedia equations with MathJax",
   "icons": {
     "16": "wiki-mjax-16.png",

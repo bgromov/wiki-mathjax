@@ -1,11 +1,13 @@
-// Wrap the span for legacy zoom levels. Could it be an option within the Chrome extension?
+// Wrap the span for legacy zoom levels.
+// Could it be an option within the Chrome extension?
 $('img.tex').each(function() {
   if($(this).parent().is('dd')) {
     $(this).wrap('<span style="font-size: 125%">');
   }
 });
 
-// Wrap images in MathJax_Preview spans and attach the MathJax math script. MathJax will remove the preview when it's done typesetting.
+// Wrap images in MathJax_Preview spans and attach the MathJax math script.
+// MathJax will remove the preview when it's done typesetting.
 $('img.tex').wrap('<span class="MathJax_Preview" />');
 $('.MathJax_Preview').after(function () {
   var $disp, $scale;
@@ -77,8 +79,6 @@ $('script').append('<script type="text/x-mathjax-config">\
   });\
 </script>');
 
-// To ensure that we loading MathJax AFTER substituting images, we load it manually TODO follow Wikipedia's configuration https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fconfig%2FTeX-AMS-texvc_HTML.js
-$('script').append(
-'<script type="text/javascript" \
-src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">\
-</script>');
+// To ensure that we loading MathJax AFTER substituting images, we load it manualy
+// TODO: follow Wikipedia's configuration https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fconfig%2FTeX-AMS-texvc_HTML.js
+$('script').append('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');
