@@ -17,6 +17,10 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
 
 ### UPDATES:
 
+**v.0.0.6:**
+
+ - Fix MathJax CDN URL (Thanks to Thomas Kriechbaumer).
+
 **v.0.0.5:**
 
  - Add MathJax *Preview* feature. For smoother user experience original images replaced only after MathJax typesetting is ready (Thanks to Peter Krautzberger).
