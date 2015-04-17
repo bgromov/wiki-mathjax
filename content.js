@@ -20,50 +20,19 @@ $('.MathJax_Preview').after(function () {
   return '<script type="math/tex' + $disp + '">' + tex + '</script>';
 });
 
-// Inject config code for MathJax
-$('script').append('<script type="text/x-mathjax-config">\
+// Load local texvc config
+var texvc_config = chrome.extension.getURL('texvc.js');
+
+$.get(texvc_config, function (data) {
+  $('script').first().after('<script type="text/x-mathjax-config">' + data + '</script>');
+});
+
+// Inject more settings
+$('script').first().after('<script type="text/x-mathjax-config">\
   MathJax.Hub.Config({\
     displayAlign: "left",\
     TeX: {\
       extensions: ["color.js"],\
-      Macros: {\
-        C:            "\\\\mathbb{C}",\
-        cnums:        "\\\\mathbb{C}",\
-        Complex:      "\\\\mathbb{C}",\
-        N:            "\\\\mathbb{N}",\
-        natnums:      "\\\\mathbb{N}",\
-        Q:            "\\\\mathbb{Q}",\
-        R:            "\\\\mathbb{R}",\
-        reals:        "\\\\mathbb{R}",\
-        Reals:        "\\\\mathbb{R}",\
-        Z:            "\\\\mathbb{Z}",\
-        sect:         "\\\\mathbb{S}",\
-        P:            "\\\\mathbb{P}",\
-        sgn:          "\\\\operatorname{sgn}",\
-        part:         "\\\\partial",\
-\
-        empty:        "\\\\emptyset",\
-        O:            "\\\\emptyset",\
-\
-	or:	      "\\\\lor",\
-	and:	      "\\\\land",\
-\
-        Alpha:        "\\\\mathrm{A}",\
-        Beta:         "\\\\mathrm{B}",\
-        Epsilon:      "\\\\mathrm{E}",\
-        Zeta:         "\\\\mathrm{Z}",\
-        Eta:          "\\\\mathrm{H}",\
-        Iota:         "\\\\mathrm{I}",\
-        Kappa:        "\\\\mathrm{K}",\
-        Mu:           "\\\\mathrm{M}",\
-        Nu:           "\\\\mathrm{N}",\
-        Omicron:      "\\\\mathrm{O}",\
-        Rho:          "\\\\mathrm{R}",\
-        Tau:          "\\\\mathrm{T}",\
-        Chi:          "\\\\mathrm{X}",\
-\
-	bold:         ["{\\\\boldsymbol #1}",1],\
-      }\
     },\
     menuSettings: {\
       zoom: "Click",\
@@ -80,5 +49,8 @@ $('script').append('<script type="text/x-mathjax-config">\
 </script>');
 
 // To ensure that we loading MathJax AFTER substituting images, we load it manualy
-// TODO: follow Wikipedia's configuration https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fconfig%2FTeX-AMS-texvc_HTML.js
-$('script').append('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');
+
+// NOTE: we can directly load texvc config from wikimedia, however it seems to be pretty slow.
+//$('script').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,https://bits.wikimedia.org/w/extensions/Math/modules/mediawiki-extensions/texvc.js"></script>');
+
+$('script').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');

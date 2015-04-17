@@ -1,13 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Wikipedia with MathJax",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Renders Wikipedia equations with MathJax",
-  "icons": {
-    "16": "wiki-mjax-16.png",
-    "48": "wiki-mjax-48.png",
-    "128": "wiki-mjax-128.png"
-  },
+  "web_accessible_resources": ["texvc.js"],
   "content_scripts": [
     {
       "matches": ["http://*.wikipedia.org/*", "https://*.wikipedia.org/*"],
