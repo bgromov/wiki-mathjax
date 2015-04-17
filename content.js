@@ -1,33 +1,3 @@
-//$('table.wikitable').each(function (){
-//    $(this).replaceWith( $(this).html()
-//        .replace(/<tbody/gi, "<div class='wikitable'")
-//        .replace(/<tr/gi, "<div class=''")
-//        .replace(/<\/tr>/gi, "</div>")
-//        .replace(/<td/gi, "<span")
-//        .replace(/<\/td>/gi, "</span>")
-//        .replace(/<\/tbody/gi, "<\/div")
-//    );
-//});
-
-
-// // Replace image tags with MathJax math scripts
-// $('img.tex').replaceWith(function() {
-//   var $otag, $ctag, $disp, $scale;
-//   if($(this).parent().is('dd')) {
-//     $otag = '[mjax]'; $ctag = '[/mjax]';
-//     $disp = '; mode=display';
-//     $scale = '125%';
-//   }else{
-//     $otag = '[mjax-inline]'; $ctag = '[/mjax-inline]';
-//     $disp = '';
-//     $scale = '100%';
-//   }
-//   return '<span style="font-size: ' + $scale + '"><script type="math/tex' + $disp + '">' + $(this).attr('alt') + '</script></span>';
-// //  return '<div style="font-size: 125%">' + $otag + $(this).attr('alt') + $ctag + '</div>';
-// });
-
-
-
 // Wrap the span for legacy zoom levels.
 // Could it be an option within the Chrome extension?
 $('img.tex').each(function() {
@@ -52,25 +22,8 @@ $('.MathJax_Preview').after(function () {
 
 
 
-
-//    extensions: ["tex2jax.js"],\
-//    tex2jax: {\
-//      inlineMath: [ ["[mjax-inline]","[/mjax-inline]"]],\
-//      displayMath: [ ["[mjax]","[/mjax]"]]\
-//    },\
-//    "HTML-CSS":{\
-//      scale:100,\
-//      availableFonts:["STIX","TeX"],\
-//      preferredFont:"TeX",\
-//      webFont:"TeX",\
-//      imageFont:"TeX",\
-//      showMathMenu:false,\
-//      styles:{},\
-//    },\
-// Inject config code for MathJax
 // TODO: add texvc macros from https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fextensions%2FTeX%2Ftexvc.js
-
-$('script').append('<script type="text/x-mathjax-config">\
+$('script').first().after('<script type="text/x-mathjax-config">\
   MathJax.Hub.Config({\
     displayAlign: "left",\
     TeX: {\
@@ -129,7 +82,6 @@ $('script').append('<script type="text/x-mathjax-config">\
 </script>');
 
 // To ensure that we loading MathJax AFTER substituting images, we load it manualy
-// TODO: follow Wikipedia's configuration https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath/0476fd66d5ed73103349ca8c376601656bb2bec9/modules%2FMathJax%2Fconfig%2FTeX-AMS-texvc_HTML.js
-$('script').append('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');
 
 
+$('script').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');
