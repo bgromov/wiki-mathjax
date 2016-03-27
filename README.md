@@ -17,6 +17,10 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
 
 ### UPDATES:
 
+**v.0.0.8:**
+
+ - Add support for WikiBooks (wikibooks.org).
+
 **v.0.0.7:**
 
  - Extension now uses official [Wikimedia MathJax config](https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FMath.git/09aafb299242293272fecc64aeeeed16a00c2a0b/modules%2Fmediawiki-extensions%2Ftexvc.js). Still, there are some glitches, so the local copy is used for now.
