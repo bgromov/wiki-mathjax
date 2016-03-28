@@ -17,6 +17,10 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
 
 ### UPDATES:
 
+**v.0.0.9:**
+
+ - Add support for Wikiwand (wikiwand.com). Quick and hackish implementation, that tries to fix broken equations on Wikiwand pages.
+
 **v.0.0.8:**
 
  - Add support for WikiBooks (wikibooks.org).
