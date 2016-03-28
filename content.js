@@ -1,3 +1,31 @@
+function compareRight(s1, s2) {
+  var ln = Math.min(s1.length, s2.length);
+  return s1.slice(-(ln)) === s2.slice(-(ln));
+}
+
+var isWikiwand = compareRight(document.location.hostname, 'wikiwand.com');
+
+function replaceUnbalancedBraces(text) {
+  var stack = [];
+  var ret = text.split('');
+
+  for (var i = 0; i < text.length; ++i) {
+    if (text[i] == '(') {
+      stack.push(i);
+    }
+    else if (text[i] == ')') {
+      if (stack.length) {
+        stack.pop();
+      } else {
+        ret[i] = '}';
+       // console.log('Found unbalanced brace');
+      }
+    }
+  }
+
+  return ret.join('');
+}
+
 // Wrap the span for legacy zoom levels.
 // Could it be an option within the Chrome extension?
 $('img.tex').each(function() {
@@ -17,6 +45,11 @@ $('.MathJax_Preview').after(function () {
     $disp = '';
   }
   tex = $(this).find('img').attr("alt");
+
+  if (isWikiwand) {
+    tex = replaceUnbalancedBraces(tex);
+  }
+
   return '<script type="math/tex' + $disp + '">' + tex + '</script>';
 });
 
@@ -53,4 +86,8 @@ $('script').first().after('<script type="text/x-mathjax-config">\
 // NOTE: we can directly load texvc config from wikimedia, however it seems to be pretty slow.
 //$('script').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,https://bits.wikimedia.org/w/extensions/Math/modules/mediawiki-extensions/texvc.js"></script>');
 
-$('script').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');
+setTimeout(injectMathJax, isWikiwand ? 1500 : 0);
+
+function injectMathJax() {
+  $('script').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>');
+}
