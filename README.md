@@ -17,6 +17,12 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
 
 ### UPDATES:
 
+**v.0.0.10:**
+
+ - Finally fix the problem with descriptive annotations for equations (some equations have textual descriptions instead of TeX code, perhaps for accessability reasons). Now the math is loaded from corresponding source pages (edit-page).
+
+ - Update jQuery to v1.12.3. Extension seems to work a bit better with Wikiwand now.
+
 **v.0.0.9:**
 
  - Add support for Wikiwand (wikiwand.com). Quick and hackish implementation, that tries to fix broken equations on Wikiwand pages.
