@@ -26,33 +26,6 @@ function replaceUnbalancedBraces(text) {
   return ret.join('');
 }
 
-// Wrap the span for legacy zoom levels.
-// Could it be an option within the Chrome extension?
-$('img.tex').each(function() {
-  if($(this).parent().is('dd')) {
-    $(this).wrap('<span style="font-size: 125%">');
-  }
-});
-
-// Wrap images in MathJax_Preview spans and attach the MathJax math script.
-// MathJax will remove the preview when it's done typesetting.
-$('img.tex').wrap('<span class="MathJax_Preview" />');
-$('.MathJax_Preview').after(function () {
-  var $disp, $scale;
-  if($(this).parent().is('dd')) {
-    $disp = '; mode=display';
-  }else{
-    $disp = '';
-  }
-  tex = $(this).find('img').attr("alt");
-
-  if (isWikiwand) {
-    tex = replaceUnbalancedBraces(tex);
-  }
-
-  return '<script type="math/tex' + $disp + '">' + tex + '</script>';
-});
-
 // Load local texvc config
 var texvc_config = chrome.extension.getURL('texvc.js');
 
@@ -80,6 +53,59 @@ $('script').first().after('<script type="text/x-mathjax-config">\
     }\
   });\
 </script>');
+
+var $true_math = {};
+var $edit = $('<div style="display: none">');
+var $edit_sel = isWikiwand ? 'a.edit_article' : '#ca-edit span a';
+
+// Load original math
+$edit.load($($edit_sel).attr('href') + ' #editform textarea', function () {
+  var $t = $("<div>" + $edit[0].innerText + "</div>").find('math');
+  $t.each(function() {
+    // Check if original math tag has 'convenient' description
+    if ($(this).attr('alt') !== undefined) {
+      $true_math[$(this).attr('alt')] = $(this).text();
+    } else {
+      // otherwise key equals value
+      $true_math[$(this).text()] = $(this).text();
+      console.log($true_math[$(this).text()])
+    }
+  });
+  prepare()
+});
+
+function prepare() {
+  // Wrap the span for legacy zoom levels.
+  // Could it be an option within the Chrome extension?
+  $('img.tex').each(function() {
+    if($(this).parent().is('dd')) {
+      $(this).wrap('<span style="font-size: 125%">');
+    }
+  });
+
+  // Wrap images in MathJax_Preview spans and attach the MathJax math script.
+  // MathJax will remove the preview when it's done typesetting.
+  $('img.tex').wrap('<span class="MathJax_Preview" />');
+  $('.MathJax_Preview').after(function () {
+    var $disp, $scale;
+    if($(this).parent().is('dd')) {
+      $disp = '; mode=display';
+    }else{
+      $disp = '';
+    }
+    tex = $(this).find('img').attr("alt");
+
+    if (isWikiwand) {
+      tex = replaceUnbalancedBraces(tex);
+    }
+
+    if (tex in $true_math) {
+      tex = $true_math[tex];
+    }
+
+    return '<script type="math/tex' + $disp + '">' + tex + '</script>';
+  });
+}
 
 // To ensure that we loading MathJax AFTER substituting images, we load it manualy
 
