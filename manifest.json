@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["http://*.wikipedia.org/*", "https://*.wikipedia.org/*", "http://*.wikibooks.org/*", "https://*.wikibooks.org/*", "http://*.wikiwand.com/*", "https://*.wikiwand.com/*"],
-      "js": ["jquery-min-1.7.2.js", "content.js"],
+      "js": ["jquery-1.12.3.min.js", "content.js"],
       "run_at": "document_end"
     }
   ]
