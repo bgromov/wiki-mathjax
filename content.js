@@ -6,7 +6,6 @@ function compareRight(s1, s2) {
 var isWikiwand = compareRight(document.location.hostname, 'wikiwand.com');
 
 function replaceUnbalancedBraces(text) {
-  console.log('Balancing ' +  text);
   var stack = [];
   var ret = text.split('');
 
