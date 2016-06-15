@@ -3,7 +3,7 @@
 # top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
+# Windows-style newlines with a newline ending every file
 [*.{js,json}]
 indent_style = space
 indent_size = 2
