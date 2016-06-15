@@ -74,7 +74,6 @@ function setConfig (config) {
 }
 
 function wikipediaPNG(images) {
-  console.log("Replacing PNG images with MathJax...");
   images.each(function() {
     var tex = this.alt;
     var script = document.createElement("script");
@@ -100,8 +99,6 @@ function wikipediaPNG(images) {
 }
 
 function wikipediaTextual(spans) {
-  console.log("Replacing LaTeX with MathJax...");
-
   spans.each(function(){
     var tex = $(this).text();
     tex = tex.substring(1, tex.length - 2);
@@ -120,7 +117,6 @@ function wikipediaTextual(spans) {
 }
 
 function wikipediaMathML(mathML) {
-  console.log("Replacing MathML/SVG/PNG with MathJax...");
   // get LaTeX source annotated inside MathML
   mathML.each(function(){
     var img = $(this).parent().parent().find("img,meta");
@@ -149,7 +145,6 @@ function wikipediaMathML(mathML) {
 
 // Load MathJax only if no one else (the webpage, another browser extension...) has already loaded it
 if (window.MathJax === undefined && (window.unsafeWindow === undefined || window.unsafeWindow.MathJax === undefined)) {
-  console.log("Loading MathJax in Wikipedia...");
   var images = $("img.tex");
   if (images.length > 0) {
     wikipediaPNG(images);
@@ -161,13 +156,9 @@ if (window.MathJax === undefined && (window.unsafeWindow === undefined || window
       var spans = $("span.tex");
       if (spans.length > 0) {
         wikipediaTextual(spans);
-      } else {
-        console.log("Math seems unused on this page. MathJax will not be loaded.");
       }
     }
   }
-} else {
-  console.log("MathJax seems to be already loaded, doing nothing.");
 }
 
 setTimeout(injectMathJax, isWikiwand ? 1500 : 0);
