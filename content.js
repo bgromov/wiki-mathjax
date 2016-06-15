@@ -43,27 +43,27 @@ $.get(texvc_config, function (data) {
 
 // Common configuration for MathJax, different rendering mode will modify this before inject
 var commonConfig = {
-	tex2jax : {
-		inlineMath : [],
-		displayMath : [],
-		processRefs : false,
-		processEnvironments : false
-	},
-	displayAlign : "left",
-	TeX : {
-		extensions : ["color.js"],
-	},
-	menuSettings : {
-		zoom : "Click",
-		zscale : "200%"
-	},
-	MathZoom : {
-		styles : {
-			"#MathJax_Zoom" : {
-				"background-color" : "#FFFFFF"
-			}
-		}
-	}
+  tex2jax : {
+    inlineMath : [],
+    displayMath : [],
+    processRefs : false,
+    processEnvironments : false
+  },
+  displayAlign : "left",
+  TeX : {
+    extensions : ["color.js"],
+  },
+  menuSettings : {
+    zoom : "Click",
+    zscale : "200%"
+  },
+  MathZoom : {
+    styles : {
+      "#MathJax_Zoom" : {
+        "background-color" : "#FFFFFF"
+      }
+    }
+  }
 };
 
 function setConfig (config) {
