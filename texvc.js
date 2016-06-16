@@ -53,7 +53,12 @@ MathJax.Hub.Register.StartupHook('TeX Jax Ready',function () {
       diamonds:     ['2662',{mathvariant: MML.VARIANT.NORMAL}],  // diamondsuit
       hearts:       ['2661',{mathvariant: MML.VARIANT.NORMAL}],  // heartsuit
       spades:       ['2660',{mathvariant: MML.VARIANT.NORMAL}],  // spadesuit
-      textvisiblespace: '2423'
+      textvisiblespace: '2423',
+      euro:         ['20AC',{mathvariant: MML.VARIANT.NORMAL}],  // euro sign
+      geneuro:      ['20AC',{mathvariant: MML.VARIANT.NORMAL}],
+      geneuronarrow:['20AC',{mathvariant: MML.VARIANT.NORMAL}],
+      geneurowide:  ['20AC',{mathvariant: MML.VARIANT.NORMAL}],
+      officialeuro: ['20AC',{mathvariant: MML.VARIANT.NORMAL}]
     },
  
     mathchar0mo: {
@@ -109,7 +114,8 @@ MathJax.Hub.Register.StartupHook('TeX Jax Ready',function () {
  
       Koppa:        '03DE',
       Stigma:       '03DA',
-      Coppa:        '03D8'  // archaic Koppa
+      Coppa:        '03D8', // archaic Koppa
+      Digamma:      '03DC'
     },
  
     delimiter: {

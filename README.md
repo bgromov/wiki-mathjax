@@ -17,6 +17,16 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
 
 ### UPDATES:
 
+**v.0.0.11:**
+
+ Improvements and bug fixes (Thanks to Lorenzo Cameroni):
+
+ - Adapt to recent Wikimedia math engine changes.
+
+ - Improve work-around for unbalanced braces bug on Wikiwand.
+
+ - Add missed symbols to MathJax config.
+
 **v.0.0.10:**
 
  - Finally fix the problem with descriptive annotations for equations (some equations have textual descriptions instead of TeX code, perhaps for accessibility reasons). Now the math is loaded from corresponding source pages (edit pages).
