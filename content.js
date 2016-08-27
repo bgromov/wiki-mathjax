@@ -51,7 +51,7 @@ var commonConfig = {
   },
   displayAlign : "left",
   TeX : {
-    extensions : ["color.js"],
+    extensions : ["color.js", "mhchem.js"],
   },
   menuSettings : {
     zoom : "Click",
