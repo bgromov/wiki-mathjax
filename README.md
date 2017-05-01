@@ -17,10 +17,14 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
 
 ### UPDATES:
 
+**v.0.0.13:**
+
+ - Change MathJax CDN to CDNJS (Thanks to Lorenzo Cameroni and Peter Krautzberger).
+
 **v.0.0.12:**
 
  - Add support for chemical equations (Thanks to Jordan Wade).
- 
+
 **v.0.0.11:**
 
  Improvements and bug fixes (Thanks to Lorenzo Cameroni):
