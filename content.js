@@ -164,5 +164,5 @@ if (window.MathJax === undefined && (window.unsafeWindow === undefined || window
 setTimeout(injectMathJax, isWikiwand ? 1500 : 0);
 
 function injectMathJax() {
-  $('head').first().after('<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,Safe"></script>');
+  $('head').first().after('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML,Safe"></script>');
 }
