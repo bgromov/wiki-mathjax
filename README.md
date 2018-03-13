@@ -78,6 +78,7 @@ Official release available at [Chrome Web Store](https://chrome.google.com/webst
  - Inline equations are scaled down to 100% (previously were same as display equations, i.e. 125%).
 
 ### KNOWN ISSUES:
+ - Some symbols may not render properly (instead, formula source is shown in red) if you are logged in to Wikipedia and the math rendering option is not set to 'LaTeX'. See [issue #20](https://github.com/bgromov/wiki-mathjax/issues/20) for details (Thanks to Florian Pfaff).
 
  - Symbols which are not a part of display equation, i.e. not typed in between <math>...</math>, but right after it, will be displayed from the next line. This is along with LaTeX markup rules and won't be fixed.
  
